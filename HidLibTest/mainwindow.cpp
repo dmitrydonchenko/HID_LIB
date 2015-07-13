@@ -51,4 +51,5 @@ void MainWindow::getNewHidData(ReceiverData receiverData)
     ui->universalLineEdit->setText(QString::number(receiverData.getIsUniversal()));
     ui->t2LineEdit->setText(QString::number(receiverData.getT2()));
     ui->receiverIdLineEdit->setText(QString::number(receiverData.getReceiverId()));
+    ui->rssiLineEdit->setText(QString::number(receiverData.getRSSI()));
 }

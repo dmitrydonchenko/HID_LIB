@@ -17,7 +17,7 @@ SOURCES += hidlib.cpp \
         receiverdata.cpp \
         bytebuffer.cpp \
         receiverthread.cpp \
-        hidnotfoundexception.cpp
+    hidnotfoundexception.cpp
 
 HEADERS += hidlib.h\
         hidlib_global.h \
@@ -25,8 +25,9 @@ HEADERS += hidlib.h\
         receiverdata.h \
         bytebuffer.h \
         receiverthread.h \
-        hidnotfoundexception.h \
-    hidapi.h
+        hidapi.h \
+        HidLibConstants.h \
+    hidnotfoundexception.h
 
 #CONFIG += build_all
 
@@ -63,8 +64,11 @@ debug:UI_DIR = debug/.ui
 ##    INSTALLS += target
 ##}
 
+
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/3rdparty/libs/ -lhidapi
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/3rdparty/libs/ -lhidapid
 else:unix: LIBS += -L$$PWD/3rdparty/libs/ -lhidapi
 
-
+INCLUDEPATH += $$PWD/3rdparty/include
+DEPENDPATH += $$PWD/3rdparty/include

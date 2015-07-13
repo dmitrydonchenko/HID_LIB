@@ -2,9 +2,9 @@
 #define HIDNOTFOUNDEXCEPTION_H
 
 #include "hidlib_global.h"
-#include <QException>
+#include <exception>
 
-class HIDLIBSHARED_EXPORT HidNotFoundException : public QException
+class HIDLIBSHARED_EXPORT HidNotFoundException : public std::exception
 {
 public:
     void raise() const;

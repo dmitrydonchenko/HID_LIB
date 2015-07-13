@@ -55,3 +55,5 @@ unsigned char ByteBuffer::getUChar()
     curPos++;
     return res;
 }
+
+

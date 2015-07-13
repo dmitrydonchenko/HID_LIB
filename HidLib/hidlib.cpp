@@ -1,6 +1,7 @@
 #include "hidlib.h"
 #include <QMessageBox>
 #include "receiverthread.h"
+#include "HidLibConstants.h"
 
 HidLib::HidLib()
 {
@@ -15,7 +16,7 @@ HidReceiver HidLib::openHid(unsigned short VID, unsigned short PID, QString seri
 {
     wchar_t *serialNumberWchar = new wchar_t[serialNumber.size() + 1];
     serialNumber.toWCharArray(serialNumberWchar);
-    serialNumberWchar[serialNumber.size()]=L'\0';
+    serialNumberWchar[serialNumber.size()] = L'\0';
     hid_device *receiver = hid_open(VID, PID, serialNumberWchar);
     if(receiver != NULL)
     {
