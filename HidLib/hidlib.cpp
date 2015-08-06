@@ -32,8 +32,12 @@ HidReceiver HidLib::openHid(unsigned short VID, unsigned short PID, QString seri
 
 QVector <HidReceiver> HidLib::getHidList()
 {
-    unsigned short VOTUM_VID = 8137;
-    unsigned short VOTUM_PID = 276;
+    unsigned short VOTUM_VID1 = 8137;
+    unsigned short VOTUM_PID1 = 276;
+    unsigned short VOTUM_VID2 = 49745;
+    unsigned short VOTUM_PID2 = 65520;
+    unsigned short VOTUM_VID3 = 8137;
+    unsigned short VOTUM_PID3 = 32934;
     struct hid_device_info *devs;
     devs = hid_enumerate(0x0, 0x0);
     QVector <HidReceiver> hidList;
@@ -41,7 +45,9 @@ QVector <HidReceiver> HidLib::getHidList()
     {
         unsigned short VID = devs->vendor_id;
         unsigned short PID = devs->product_id;
-        if(VID == VOTUM_VID && PID == VOTUM_PID)
+        if((VID == VOTUM_VID1 && PID == VOTUM_PID1) ||
+           (VID == VOTUM_VID2 && PID == VOTUM_PID2) ||
+           (VID == VOTUM_VID3 && PID == VOTUM_PID3))
         {
             HidReceiver tmp;
             bool ok = true;
